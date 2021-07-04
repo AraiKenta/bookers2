@@ -1,0 +1,67 @@
+<p id="notice">
+  <%= flash[:notice] %>
+</p>
+<% if @user.errors.any? %>
+  <strong><%= @user.errors.count %>errors occured</strong>
+  <% @user.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2>User info</h2>
+      <%= form_with model:@user, local: true do |user| %>
+      <div class="form-group">
+        <label for="user_name">Name</label>
+        <%= user.text_field :name, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <label for="user_image">Image</label>
+        <%= user.attachment_field :profile_image, class: 'form-control-file' %>
+      </div>
+      <div class="form-group">
+        <label for="user_introduction">Introduction</label>
+        <%= user.text_area :introduction, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= user.submit 'Update User', class: 'btn btn-secondary' %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div><p id="notice">
+  <%= flash[:notice] %>
+</p>
+<% if @user.errors.any? %>
+  <strong><%= @user.errors.count %>errors occured</strong>
+  <% @user.errors.full_messages.each do |message| %>
+    <%= message, class: 'bg-red' %>
+  <% end %>
+<% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2>User info</h2>
+      <%= form_with model:@user, local: true do |user| %>
+      <div class="form-group">
+        <label for="user_name">Name</label>
+        <%= user.text_field :name, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <label for="user_image">Image</label>
+        <%= user.attachment_field :profile_image, class: 'form-control-file' %>
+      </div>
+      <div class="form-group">
+        <label for="user_introduction">Introduction</label>
+        <%= user.text_area :introduction, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= user.submit 'Update User', class: 'btn btn-secondary' %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
